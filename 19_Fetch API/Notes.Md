@@ -2,9 +2,9 @@
 
 **Introduction:** The Fetch API provides a modern, promise-based interface for making network requests in JavaScript. It allows you to make HTTP requests to servers and retrieve data, making it a fundamental tool for interacting with web services and APIs.
 
-## Basic Usage:
++ Basic Usage:
 
-`fetch('https://jsonplaceholder.typicode.com/todos/1')
+```fetch('https://jsonplaceholder.typicode.com/todos/1')
   .then(response => {
     if (!response.ok) {
       throw new Error('Network response was not ok');
@@ -16,11 +16,11 @@
   })
   .catch(error => {
     console.error('Fetch error:', error);
-  });`
+  });```
 
-**Using Fetch with Callbacks:**
+Using Fetch with Callbacks:
 
-function fetchData(url, callback) {
+```function fetchData(url, callback) {
   fetch(url)
     .then(response => {
       if (!response.ok) {
@@ -34,19 +34,19 @@ function fetchData(url, callback) {
     .catch(error => {
       console.error('Fetch error:', error);
     });
-}
-          
-**Explanation:**
+}```
+
+Explanation:
 
 + The fetch() is called with the URL of the resource you want to fetch. It returns a Promise that resolves to the Response object representing the response to the request.
 + The first .then() handles the Response object. It checks if the response was successful (status code 200-299), and if so, it parses the response body as JSON.
 + The second .then() receives the parsed JSON data and you can then work with it.
 + The .catch() method is used to catch any errors that occur during the fetch operation.
-**Async/Await Syntax:** Async/await is a modern syntax for handling asynchronous code in JavaScript, which provides a more readable and synchronous-like way to work with promises.
+Async/Await Syntax:-  Async/await is a modern syntax for handling asynchronous code in JavaScript, which provides a more readable and synchronous-like way to work with promises.
 
-**Using Fetch with Async/Await:**
+Using Fetch with Async/Await:
 
-async function fetchData(url) {
+```async function fetchData(url) {
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -59,9 +59,9 @@ async function fetchData(url) {
   }
 }
 // Usage
-fetchData('');
+fetchData('');```
 
-**Explanation:**
+Explanation:
 
 + The fetchData function is declared as async, indicating that it contains asynchronous operations.
 + Inside the function, await is used to wait for the fetch operation to complete and get the Response object.
@@ -75,27 +75,27 @@ fetchData('');
 + It is essential for interacting with web services and APIs.
 + Async/await syntax provides a more readable and synchronous-like way to work with promises, making code easier to understand and maintain.
 
-**Additional Details on Fetch API:**
+Additional Details on Fetch API:
 
-**1.Customizing Requests:**
+1.Customizing Requests:
 
 - Fetch API allows you to customize your requests by providing options such as method, headers, body, mode, cache, credentials, etc.
 - You can specify different HTTP methods like GET, POST, PUT, DELETE, etc., using the method option.
 - Headers can be set using the headers option to include additional information like content type, authorization tokens, etc.
 - The body option allows you to send data with your request, which can be JSON, FormData, Blob, ArrayBuffer, or plain text.
 
-**2. Handling Responses:**
+2. Handling Responses:
 
 - Fetch API provides various methods to handle responses, such as response.json(), response.text(), response.blob(), etc., depending on the content type of the response.
 - You can use response.ok to check if the response was successful (status code in the range 200-299).
 - Accessing response headers, status, and status text is straightforward with properties like response.headers, response.status, and response.statusText.
-**3. Cross-Origin Requests:**
+3. Cross-Origin Requests:-
 
 - Fetch API supports cross-origin requests, allowing you to fetch resources from different origins. However, cross-origin requests are subject to CORS (Cross-Origin Resource Sharing) restrictions enforced by the browser.
 - CORS headers such as Access-Control-Allow-Origin, Access-Control-Allow-Methods, Access-Control-Allow-Headers, etc., need to be properly configured on the server to allow cross-origin requests.
 - You can use the withCredentials option to send cookies with cross-origin requests.
 
-**4. Security Considerations:**
+4. Security Considerations:
 
 - When making requests to insecure resources (HTTP), you may encounter mixed content issues, especially in secure contexts (HTTPS). It's recommended to fetch resources securely over HTTPS to prevent security vulnerabilities.
 - Fetch API provides a fetch-like API with additional features and broader browser support.
@@ -103,26 +103,26 @@ fetchData('');
 - Be cautious when handling user input in URLs or constructing URLs dynamically, as it can lead to security vulnerabilities like XSS (Cross-Site Scripting) attacks.
 
 
-**5. Polyfills and Browser Support:**
+5. Polyfills and Browser Support:
 
 - Fetch API is supported in most modern browsers, including Chrome, Firefox, Safari, Edge, etc. However, for compatibility with older browsers, you may need to use a polyfill like whatwg-fetch or a library like Axios, which provides a fetch-like API with additional features and broader browser support.
 
-**6. Error Handling:**
+6. Error Handling:
 
 - Fetch API uses promises for handling asynchronous operations, so you can use .catch() to handle errors that occur during the fetch operation or while processing the response.
 - Common errors include network errors (e.g., server not reachable, DNS resolution failed), server errors (e.g., status code 4xx or 5xx), and parsing errors (e.g., invalid JSON).
 
-**7. Concurrency and Performance:**
+7. Concurrency and Performance:
 
 - Fetch API provides a convenient way to fetch multiple resources simultaneously. You can use the Promise.all() method to wait for all requests to complete before proceeding with your application.
 - You can use the Promise.race() method to wait for the first request to complete before proceeding with your application.
 
-**8. Additional Details:**
+8. Additional Details:
 Understanding these additional details will enhance your ability to effectively use the Fetch API in various scenarios and handle different use cases with confidence.
 
-**Customizing Requests:**
+Customizing Requests:
 
-fetch('https://api.example.com/data', {
+```fetch('https://api.example.com/data', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -132,11 +132,11 @@ fetch('https://api.example.com/data', {
 })
 .then(response => response.json())
 .then(data => console.log(data))
-.catch(error => console.error('Fetch error:', error));
+.catch(error => console.error('Fetch error:', error));```
 
-**Handling Responses:**
+Handling Responses:
 
-fetch('https://api.example.com/data')
+```fetch('https://api.example.com/data')
 .then(response => {
   if (!response.ok) {
     throw new Error('Network response was not ok');
@@ -144,27 +144,29 @@ fetch('https://api.example.com/data')
   return response.text(); // or response.json() for JSON data
 })
 .then(data => console.log(data))
-.catch(error => console.error('Fetch error:', error));
-**Cross-Origin Requests:**
+.catch(error => console.error('Fetch error:', error));```
 
-fetch('https://api.example.com/data', {
+Cross-Origin Requests:
+
+```fetch('https://api.example.com/data', {
   mode: 'cors' // or 'no-cors' or 'same-origin'
 })
 .then(response => response.json())
 .then(data => console.log(data))
-.catch(error => console.error('Fetch error:', error));
+.catch(error => console.error('Fetch error:', error));```
 
-**Security Considerations:**
+Security Considerations:
 
-const userInput = getUserInput(); // Assume this function gets user input
+```const userInput = getUserInput(); // Assume this function gets user input
 const url = `https://api.example.com/data?query=${encodeURIComponent(userInput)}`;
 fetch(url)
 .then(response => response.json())
 .then(data => console.log(data))
-.catch(error => console.error('Fetch error:', error));
-**Error Handling:**
+.catch(error => console.error('Fetch error:', error));```
 
-fetch('https://api.example.com/data')
+Error Handling:
+
+```fetch('https://api.example.com/data')
 .then(response => {
   if (!response.ok) {
     throw new Error('Network response was not ok');
@@ -172,9 +174,9 @@ fetch('https://api.example.com/data')
   return response.json();
 })
 .then(data => console.log(data))
-.catch(error => console.error('Fetch error:', error));
+.catch(error => console.error('Fetch error:', error));```
 
-**Concurrency and Performance:**
+Concurrency and Performance:
 
 ```const urls = ['https://api.example.com/data1', 'https://api.example.com/data2', 'https://api.example.com/data3'];
 const requests = urls.map(url => fetch(url).then(response => response.json()));
